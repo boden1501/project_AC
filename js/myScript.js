@@ -21,9 +21,19 @@ $(document).ready(function () {
         showSlide(slideIndex);
     });
     function showSlide(n) {
-        var slides = $(`#banner-hide img:nth(${slideIndex})`).attr('src');
-        $("#mainImage").attr('src', slides);
-        console.log(slides);
+
+        // var slides = $(`#banner-hide img:nth(${slideIndex})`).attr('src');
+        // $("#mainImage").attr('src', slides);
+        // $("#mainImage").addClass("active"); // Add 'active' class to the image
+        // setTimeout(function () {
+        //     $("#mainImage").removeClass("active"); // Remove 'active' class after the transition
+        // }, 10);
+
+
+        $("#mainImage").fadeOut(200, function() {
+            var src = slide.eq(n).attr('src');
+            $(this).attr('src', src).fadeIn(200);
+        });
     }
 });
 

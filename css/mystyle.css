@@ -10,6 +10,13 @@
 
     text-align: center;
 }
+.top-windowAC{
+    margin: 50px;
+}
+.top-windowAC h4{
+
+    text-align: center;
+}
 .product{
     margin: 100px;
     width: 20%;
@@ -17,6 +24,7 @@
     background-color: rgb(48, 47, 47);
     
 }
+
 #menu{
     font-size: 25px;
 }
@@ -24,25 +32,33 @@
     margin-right: 50px;
     margin-left: 50px;
 }
+.main{
+    min-height: 600px;
+}
 #banner{
     background-color: rgb(29, 29, 29);
-    min-height: 700px;
+    height: 600px;
+    margin: auto;
 }
 #banner-hide{
     display: none;
-    width: 90%;
+    width: 95%;
     height: 100%;
 }
 
 .banner-show img{
-    width: 90%;
+    width: 95%;
+    height: 100%;
+    margin: auto;
 }
+
 .prev{
     color: white;
     border-radius: 100px;
     background-color: rgb(48, 47, 47);
     box-shadow: 0px;
     border: none;
+    margin: auto;
 }
 .next{
     color: white;
@@ -50,8 +66,10 @@
     background-color: rgb(48, 47, 47);
     box-shadow: 0px;
     border: none;
+    margin: auto;
 }
 .footer{
+    width: 100%;
     background-color: black;
 }
 .footer-icon a{

@@ -1,3 +1,4 @@
+const typeProduct=[]
 const dataBrand=[
     {
         "brand_name":"LG",
