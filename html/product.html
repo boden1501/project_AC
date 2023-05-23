@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="shortcut icon" href="../img/logo.png">
+    <script src="../js/jquery-3.6.4.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <link rel="stylesheet" href="../css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/css/bootstrap.css">
+    <script src="../css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/js/bootstrap.js"></script>
+    <script src="../js/data.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            let name= localStorage.getItem('name');
+            
+            let price= localStorage.getItem('price');
+            let img= localStorage.getItem('img');
+            if (!img&&!name&&!price) window.location='index.html'
+            else 
+                $('.product-information').html(`
+                <div class="row">
+                    <div class="col-4 m-2">
+                        <div class="img-product-inf">
+                            <img src=".${img}" alt="">
+                        </div>  
+                    </div>
+                    <div class="col-7 m-2">
+                        <div class="product-inf">
+                            <h3>${name}</h3>
+                            <p>${price}</p>
+                        </div>
+                        <button id='btnAdd'>Add to Cart</button>
+                    </div>
+                </div>
+            
+                
+                `);   
+        });
+    </script>
+</head>
+
+<body style="background-color: rgb(34, 34, 34);">
+    <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: black">
+        <a class="navbar-brand" href="../index.html"><img src="../img/logo.png" class="logo" alt=""></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="menu">
+                <li class="nav-item ">
+                    <a class="nav-link" href="../index.html">Home<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Product</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: black; ">
+                        <a class="dropdown-item" href="#" style="color:white">Window AC</a>
+                        <a class="dropdown-item" href="#" style="color:white">Split AC</a>
+                        <a class="dropdown-item" href="#" style="color:white">Cassette AC </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0 mr-3">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav mr-5">
+                <li class="nav-item">
+                    <a data-toggle="modal" data-target="#modelId" class="nav-link" href="#"><i
+                            class="fa fa-user"></i></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="fa fa-cart-plus"></i></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid" style="color: white;">
+        <div class="product-information">
+            <!-- <div class="row">
+                <div class="col-4 ">
+                    <div class="img-product-inf">
+                        
+                        <img src="" alt="">
+                    </div>    
+                </div>
+                <div class="col-8">
+                    <div class="product-inf">
+                        <h3>Ten SP</h3>
+                    </div>
+                </div>
+ 
+                
+         
+            </div>    -->
+        </div>
+        
+
+        <div class="footer">
+            <div class="row">
+                <div class="col-4 mt-3 ml-auto">
+                    <div class="connect-us">
+                        <h4>CONNECT WITH US</h4>
+                        <div class="footer-icon">
+                            <a href="https://www.facebook.com/your-page" target="_blank"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-contact mt-3">
+                        <h4>CONTACT US</h4>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i> Phone Number: 123456789</p>
+                        <p><i class="fa fa-envelope" aria-hidden="true"></i> Email: buyAC@gmail.com</p>
+                        <p><i class="fa fa-compass" aria-hidden="true"></i> Address: Aptech ,Ho Chi Minh city, Vietnam
+                        </p>
+
+                    </div>
+                    <div class="option-buy">
+                        <img src="../img/payment-pic.png" alt="">
+                    </div>
+
+                </div>
+                <div class="col-4 m-auto">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.201878982042!2d106.67578097577619!3d10.795844658833785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175290e624afc3f%3A0x9b86bdb4da236d06!2zQVBURUNIIFNBSUdPTiAtIEjhu4YgVEjhu5BORyDEkMOATyBU4bqgTyBM4bqsUCBUUsOMTkggVknDik4gUVXhu5BDIFThur4gVOG6oEkgSENN!5e0!3m2!1svi!2s!4v1684437594918!5m2!1svi!2s"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p style="text-align: center;">©Copyright 2023 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade " id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sign In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">User</label>
+                        <input type="text" name="" id="user" class="form-control border-success" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="text" name="" id="password" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

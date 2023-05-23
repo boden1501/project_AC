@@ -105,3 +105,19 @@
     background-color: rgb(26, 25, 25);
     text-align: center;
 }
+.img-product-inf img{
+    width: 100%;
+ 
+}
+.product-information{
+    min-height: 700px;
+}
+.navbar-nav .nav-link:hover a{
+
+    background-color: #333;
+    color: white;
+}
+#dropdownId a:hover{
+    color: black;
+    background-color: aqua;
+}
