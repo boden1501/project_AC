@@ -30,10 +30,27 @@ $(document).ready(function () {
         // }, 10);
 
 
-        $("#mainImage").fadeOut(200, function() {
+        $("#mainImage").fadeOut(200, function () {
             var src = slide.eq(n).attr('src');
             $(this).attr('src', src).fadeIn(200);
         });
     }
+
+
+    let s = ''
+    $.each(dataProduct, function (k, v) {
+        console.log(v)
+        s += ` <div class="product">
+                            <div class="img-product">
+                                <img src="${v.img}" alt="">
+                            </div>
+                            <div class="detail-product">
+                                <p class='name-product'>${v.name}</p>
+                                <p class='price'>${v.price}</p>
+                            </div>
+                </div>`;
+    })
+    $('#top-product').html(s)
+
 });
 
