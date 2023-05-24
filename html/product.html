@@ -16,12 +16,12 @@
     <script>
 
         $(document).ready(function () {
-            let name= localStorage.getItem('name');
-            
-            let price= localStorage.getItem('price');
-            let img= localStorage.getItem('img');
-            if (!img&&!name&&!price) window.location='index.html'
-            else 
+            let name = localStorage.getItem('name');
+
+            let price = localStorage.getItem('price');
+            let img = localStorage.getItem('img');
+            if (!img && !name && !price) window.location = 'index.html'
+            else {
                 $('.product-information').html(`
                 <div class="row">
                     <div class="col-4 m-2">
@@ -36,15 +36,46 @@
                         </div>
                         <button id='btnAdd'>Add to Cart</button>
                     </div>
-                </div>
-            
+                </div>     
                 
-                `);   
+                `);
+                $("#btnAdd").click(function (e) { 
+
+                    
+                    localStorage.setItem('name', `${name}`);
+                    window.location = 'cart.html';
+
+   
+                    localStorage.setItem('price',`${price}`);
+                    window.location = 'cart.html';
+
+                    localStorage.setItem('img', `${img}`);
+                    window.location = 'cart.html';
+
+                    
+                });
+               
+                
+                
+
+            }
+
+
+
         });
+        function LoadDataCart() {
+                    
+        
+
+
+
+
+                }
     </script>
 </head>
 
 <body style="background-color: rgb(34, 34, 34);">
+
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: black">
         <a class="navbar-brand" href="../index.html"><img src="../img/logo.png" class="logo" alt=""></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
@@ -106,9 +137,10 @@
          
             </div>    -->
         </div>
-        
+
 
         <div class="footer">
+
             <div class="row">
                 <div class="col-4 mt-3 ml-auto">
                     <div class="connect-us">

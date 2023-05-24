@@ -14,9 +14,56 @@
     <script src="../css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/js/bootstrap.js"></script>
     <script src="../js/data.js"></script>
     <script src="../js/myScript.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+            
+            let name= localStorage.getItem('name');
+            let price= localStorage.getItem('price');
+            let img= localStorage.getItem('img');
+            if (!img&&!name&&!price) window.location='product.html'
+            else 
+            console.log(img);
+            
+                 $('.cart-table').html(`
+            
+                <table class="table" id="tb1" >
+                    <tr class="header-content" style="font-weight: bold; background-color: rgb(201, 199, 199);">
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td><img src=".${img}" alt="" style="width: 200px;"></td>
+                        <td>${name}</td>
+                        <td>${price}</td>
+                        <td>  <input type="number" name="" id="" min="1" value="1" style="width: 50px;"></td>
+            
+                    </tr>  
+                    
+                </table> 
+                
+                `); 
+            // $("#tb1").append($('.cart-table').html(`
+            
+            // <table class="table" id="tb1" >
+            //     <tr class="header-content" style="font-weight: bold; background-color: rgb(201, 199, 199);">
+            //         <td><input type="checkbox" name="" id=""></td>
+            //         <td><img src=".${img}" alt="" style="width: 200px;"></td>
+            //         <td>${name}</td>
+            //         <td>${price}</td>
+            //         <td>  <input type="number" name="" id="" min="1" value="1" style="width: 50px;"></td>
+        
+            //     </tr>  
+                
+            // </table> 
+            
+            // `));    
+            
+        });
+            
+    </script>
 </head>
 
 <body style="background-color: rgb(34, 34, 34);">
+    
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: black">
         <a class="navbar-brand" href="../index.html"><img src="../img/logo.png" class="logo" alt=""></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
@@ -85,6 +132,7 @@
                     </tr>  
                     
                 </table> -->
+                
             </div>
             <div class="col-4 " >
                 <div class="row">

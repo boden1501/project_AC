@@ -27,18 +27,25 @@ $(document).ready(function () {
         });
     }
 
-    
-    topProduct();
+    // $('#btnAdd').click(function () {
+    //     alert('🏠');
+    //     var name = $(this).data('name');
+    //     localStorage.setItem('name', name);
+    //     window.location = './html/cart.html';
+    //     var price = $(this).data('price');
+    //     localStorage.setItem('price', price);
+    //     window.location = './html/cart.html';
+
+    //     var img = $(this).data('img');
+    //     localStorage.setItem('img', img);
+    //     window.location = './html/cart.html';
+    // });
+   
    
 });
 function topProduct() {
-    let s = ''
-    // var a1 = filterProduct('brand_id', 'tb', dataProduct)
-    // var a2 = filterProduct('brand_id', 'lg', dataProduct)
-    var a3 = filterProduct('bestSeller', true, dataProduct)
-    // var a4 = filterProduct('name', 'Máy lạnh LG Inverter 1.5 HP V13APFP', dataProduct)
-
-    //console.log('Ban chay=', a3)//, dataProduct)
+    let s = '';
+    var a3 = filterProduct('bestSeller', true, dataProduct);
     $.each(a3, function (i, v) {
 
     s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
@@ -68,7 +75,10 @@ function topProduct() {
         window.location = './html/product.html';
     });
 
+
+
 }
+
 function LoadData() {
 
     let a = ''
