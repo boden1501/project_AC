@@ -28,7 +28,7 @@ const dataProduct=[
         "brand_id": "aq",
         "price": '1$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "1"
     },
     {
@@ -38,7 +38,7 @@ const dataProduct=[
         "brand_id": "aq",
         "price": '2$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller":false,
         "id": "2"
     },
     {
@@ -48,7 +48,7 @@ const dataProduct=[
         "brand_id": "aq",
         "price": '3$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "3"
     },
     {
@@ -68,7 +68,7 @@ const dataProduct=[
         "brand_id": "dk",
         "price": '5$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "5"
     },
     {
@@ -88,7 +88,7 @@ const dataProduct=[
         "brand_id": "dk",
         "price": '7$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "7"
     },
     {
@@ -118,7 +118,7 @@ const dataProduct=[
         "brand_id": "lg",
         "price": '10$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "10"
     },
     {
@@ -138,7 +138,7 @@ const dataProduct=[
         "brand_id": "lg",
         "price": '12$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "12"
     },
     {
@@ -168,7 +168,7 @@ const dataProduct=[
         "brand_id": "tb",
         "price": '130$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "15"
     },
     {
@@ -188,7 +188,7 @@ const dataProduct=[
         "brand_id": "tb",
         "price": '130$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "17"
     },
     {
@@ -198,7 +198,7 @@ const dataProduct=[
         "brand_id": "tb",
         "price": '130$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "18"
     },
     {
@@ -208,7 +208,7 @@ const dataProduct=[
         "brand_id": "tb",
         "price": '130$',
         "isNew": true,
-        "bestSeller": true,
+        "bestSeller": false,
         "id": "19"
     },
 

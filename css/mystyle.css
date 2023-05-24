@@ -91,6 +91,10 @@
 }
 .product:hover img{
     transform: scale(1.2);
+   
+}
+.product:hover{
+    cursor: pointer;
 }
 .detail-product{
     text-align: center;
@@ -120,4 +124,20 @@
 #dropdownId a:hover{
     color: black;
     background-color: aqua;
+}
+.cart-table{
+    margin-top: 100px;
+}
+.cart-table> h3{
+    text-align: center;
+}
+.cart-table> p{
+    text-align: center;
+}
+.cart-table img{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

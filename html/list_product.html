@@ -6,35 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="shortcut icon" href="./img/logo.png">
-    <script src="./js/jquery-3.6.4.js"></script>
+    <link rel="shortcut icon" href="../img/logo.png">
+    <script src="../js/jquery-3.6.4.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="./css/mystyle.css">
-    <link rel="stylesheet" href="./css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/css/bootstrap.css">
-    <script src="./css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/js/bootstrap.js"></script>
-    <script src="./js/data.js"></script>
-    <script src="./js/myScript.js"></script>
-
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <link rel="stylesheet" href="../css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/css/bootstrap.css">
+    <script src="../css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/js/bootstrap.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/myScript.js"></script>
+    <script>
+        $(document).ready(function () {
+            LoadData();
+        });
+    </script>
 </head>
 
 <body style="background-color: rgb(34, 34, 34);">
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: black">
-        <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" class="logo" alt=""></a>
+        <a class="navbar-brand" href="../index.html"><img src="../img/logo.png" class="logo" alt=""></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="menu">
-                <li class="nav-item active">
-                    <a class="nav-link" href="./index.html">Home<span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link" href="../index.html">Home<span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Product</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: black; ">
-                        <a class="dropdown-item" href="./html/list_product.html" style="color:white">All AC</a>
                         <a class="dropdown-item" href="#" style="color:white">Window AC</a>
                         <a class="dropdown-item" href="#" style="color:white">Split AC</a>
                         <a class="dropdown-item" href="#" style="color:white">Cassette AC </a>
@@ -54,65 +57,20 @@
                     <a data-toggle="modal" data-target="#modelId" class="nav-link" href="#"><i
                             class="fa fa-user"></i></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./html/cart.html"><i class="fa fa-cart-plus"></i></a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="fa fa-cart-plus"></i></a>
                 </li>
 
             </ul>
         </div>
     </nav>
-
     <div class="container-fluid" style="color: white;">
 
-        <div class="main">
-            <div class="row ">
-                <div class="col-12 ">
-                    <h1 class="display-4 ">Air Conditioners</h1>
-                </div>
-            </div>
-            <div class="row " id="banner">
-                <div class="col-10 m-auto">
-                    <button class="prev">&#10094;</button>
-                    <span class="banner-show">
-                        <img id="mainImage" src="./img/banner/banner_2.jpg" alt="">
-                    </span>
-
-                    <button class="next">&#10095;</button>
-                </div>
-            </div>
-            <div id="banner-hide">
-
-                <img src="./img/banner/banner_2.jpg" alt="">
-                <img src="./img/banner/banner_3.jpg" alt="">
-                <img src="./img/banner/banner_1.jpg" alt="">
-                <img src="./img/banner/banner_4.webp" alt="">
-            </div>
-        </div>
-        <div class="top-sell">
+        <div class="list-product">
             <div class="row ">
                 <div class="col-11 m-auto">
-                    <h4>Top Selling ACs</h4>
-                    <div id="top-product">
-                        <div class="product">
-                            <!-- <div class="img-product">
-                                <img src="" alt="">
-                            </div>
-                            <div class="detail-product">
-                                <p>TenSp</p>
-                                <p>Gia</p>
-                            </div> -->
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="top-windowAC">
-            <div class="row ">
-                <div class="col-11 m-auto">
-                    <h4>Top Window ACs</h4>
-                    <div id="top-windowAC-product">
+                    <h4>All ACs</h4>
+                    <div class="list-all">
                         <div class="product">
                             <div class="img-product">
                                 <img src="" alt="">
@@ -125,9 +83,12 @@
 
                         </div>
                     </div>
+
+                    
                 </div>
             </div>
         </div>
+
         <div class="footer">
             <div class="row">
                 <div class="col-4 mt-3 ml-auto">
@@ -147,12 +108,12 @@
                         <p><i class="fa fa-envelope" aria-hidden="true"></i> Email: buyAC@gmail.com</p>
                         <p><i class="fa fa-compass" aria-hidden="true"></i> Address: Aptech ,Ho Chi Minh city, Vietnam
                         </p>
-
+    
                     </div>
                     <div class="option-buy">
-                        <img src="./img/payment-pic.png" alt="">
+                        <img src="../img/payment-pic.png" alt="">
                     </div>
-
+    
                 </div>
                 <div class="col-4 m-auto">
                     <iframe
@@ -160,24 +121,20 @@
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-
+    
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p class="copyright">©Copyright 2023 </p>
+                    <p style="text-align: center;">©Copyright 2023 </p>
                 </div>
             </div>
         </div>
-
-
-
-
-
     </div>
-
+    
+    <!-- Modal -->
     <div class="modal fade " id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content bg-dark" style="color: white;">
+            <div class="modal-content bg-dark">
                 <div class="modal-header">
                     <h5 class="modal-title">Sign In</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -193,22 +150,14 @@
                         <label for="">Password</label>
                         <input type="text" name="" id="password" class="form-control" placeholder="">
                     </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
-                            Remember password
-                        </label>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Log In</button>
+                    <button type="button" class="btn btn-success">Save</button>
                 </div>
             </div>
         </div>
-
     </div>
-
 </body>
 
 </html>

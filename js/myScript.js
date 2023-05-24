@@ -27,16 +27,21 @@ $(document).ready(function () {
         });
     }
 
-    LoadData();
-
+    
+    topProduct();
+   
 });
-
-function LoadData(){
-
+function topProduct() {
     let s = ''
-    $.each(dataProduct, function (k, v) {
-        console.log(v)
-        s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
+    // var a1 = filterProduct('brand_id', 'tb', dataProduct)
+    // var a2 = filterProduct('brand_id', 'lg', dataProduct)
+    var a3 = filterProduct('bestSeller', true, dataProduct)
+    // var a4 = filterProduct('name', 'Máy lạnh LG Inverter 1.5 HP V13APFP', dataProduct)
+
+    //console.log('Ban chay=', a3)//, dataProduct)
+    $.each(a3, function (i, v) {
+
+    s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
                             <div class="img-product">
                                 <img src="${v.img}" alt="">
                             </div>
@@ -49,7 +54,7 @@ function LoadData(){
     })
 
     $('#top-product').html(s)
-    $('.product').click(function() {
+    $('.product').click(function () {
 
         var name = $(this).data('name');
         localStorage.setItem('name', name);
@@ -61,6 +66,74 @@ function LoadData(){
         var img = $(this).data('img');
         localStorage.setItem('img', img);
         window.location = './html/product.html';
-      });
-      
+    });
+
+}
+function LoadData() {
+
+    let a = ''
+    $.each(dataProduct, function (i, v) {
+        console.log(v)
+    a += `<div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
+                            <div class="img-product">
+                                <img src=".${v.img}" alt="">
+                            </div>
+                            <div class="detail-product">
+                                <p class='name-product'>${v.name}</p>
+                                <p class='price'>${v.price}</p>
+                                
+                            </div>
+                </div>`;
+    })
+
+    $('.list-all').html(a)
+    $('.product').click(function () {
+
+        var name = $(this).data('name');
+        localStorage.setItem('name', name);
+        window.location = 'product.html';
+        var price = $(this).data('price');
+        localStorage.setItem('price', price);
+        window.location = 'product.html';
+
+        var img = $(this).data('img');
+        localStorage.setItem('img', img);
+        window.location = 'product.html';
+    });
+
+}
+function filterProduct(column, value, data) {
+    if (column == 'brand_id') {
+        return data.filter(item => item.brand_id == value)
+    }
+
+    if (column == 'name') {
+        return data.filter(item => item.name.toLowerCase().indexOf(value.toLowerCase()) != -1)
+    }
+
+    if (column == 'bestSeller') {
+        return data.filter(item => item.bestSeller === true)
+    }
+
+    if (column == 'isNew') {
+        return data.filter(item => item.isNew === value)
+    }
+    if (column == 'id')
+        return data.filter(item => item.id == value)
+}
+
+
+function sortBy(column, type, data) {
+    if (column == 'brand_id') {
+        return data.sort((a, b) => a.brand_id - b.brand_id)
+    }
+
+    if (column == 'name') {
+        return data.sort(data.sort((a, b) => a.name - b.name))
+    }
+
+    if (column == 'price') {
+        if (type === 'inc') data.sort((a, b) => a.price - b.price)
+        else data.sort((a, b) => b.price - a.price)
+    }
 }
