@@ -13,33 +13,45 @@
     <link rel="stylesheet" href="../css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/css/bootstrap.css">
     <script src="../css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/js/bootstrap.js"></script>
     <script src="../js/data.js"></script>
+   
+    <script src="../js/jquery.jqZoom.js"></script>
+
     <script>
 
         $(document).ready(function () {
-            let name= localStorage.getItem('name');
-            
-            let price= localStorage.getItem('price');
-            let img= localStorage.getItem('img');
-            if (!img&&!name&&!price) window.location='index.html'
-            else 
+            let name = localStorage.getItem('name');
+
+            let price = localStorage.getItem('price');
+            let img = localStorage.getItem('img');
+            if (!img && !name && !price) window.location = 'index.html'
+            else
                 $('.product-information').html(`
                 <div class="row">
-                    <div class="col-4 m-2">
+                    <div class="col-5 ml-5">
                         <div class="img-product-inf">
-                            <img src=".${img}" alt="">
+                            <div class="zoom-box">
+                                <img src=".${img}" alt="">
+                            </div>
+                            
                         </div>  
                     </div>
-                    <div class="col-7 m-2">
+                    <div class="col-6 ">
                         <div class="product-inf">
                             <h3>${name}</h3>
                             <p>${price}</p>
                         </div>
                         <button id='btnAdd'>Add to Cart</button>
+                        <div class="product-detail">
+
+                            <ul>
+                                <li>Thông tin sản phẩm</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             
                 
-                `);   
+                `);
         });
     </script>
 </head>
@@ -61,6 +73,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Product</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: black; ">
+                        <a class="dropdown-item" href="../html/list_product.html" style="color:white">All AC</a>
                         <a class="dropdown-item" href="#" style="color:white">Window AC</a>
                         <a class="dropdown-item" href="#" style="color:white">Split AC</a>
                         <a class="dropdown-item" href="#" style="color:white">Cassette AC </a>
@@ -87,6 +100,17 @@
             </ul>
         </div>
     </nav>
+    <script>
+        $(function(){
+            $(".img-product-inf img").jqZoom({
+                selectorWidth: 30,
+                selectorHeight: 30,
+                viewerWidth: 500,
+                viewerHeight: 400
+            });
+    
+        })
+    </script>
     <div class="container-fluid" style="color: white;">
         <div class="product-information">
             <!-- <div class="row">
@@ -106,7 +130,7 @@
          
             </div>    -->
         </div>
-        
+
 
         <div class="footer">
             <div class="row">
