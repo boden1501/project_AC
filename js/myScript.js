@@ -26,26 +26,19 @@ $(document).ready(function () {
             $(this).attr('src', src).fadeIn(200);
         });
     }
-
-    // $('#btnAdd').click(function () {
-    //     alert('🏠');
-    //     var name = $(this).data('name');
-    //     localStorage.setItem('name', name);
-    //     window.location = './html/cart.html';
-    //     var price = $(this).data('price');
-    //     localStorage.setItem('price', price);
-    //     window.location = './html/cart.html';
-
-    //     var img = $(this).data('img');
-    //     localStorage.setItem('img', img);
-    //     window.location = './html/cart.html';
-    // });
-   
+    topCassetteAC();
+    topWindowAC();
+    topProduct();
    
 });
 function topProduct() {
-    let s = '';
-    var a3 = filterProduct('bestSeller', true, dataProduct);
+    let s = ''
+    // var a1 = filterProduct('brand_id', 'tb', dataProduct)
+    // var a2 = filterProduct('brand_id', 'lg', dataProduct)
+    var a3 = filterProduct('bestSeller', true, dataProduct)
+    // var a4 = filterProduct('name', 'Máy lạnh LG Inverter 1.5 HP V13APFP', dataProduct)
+
+    //console.log('Ban chay=', a3)//, dataProduct)
     $.each(a3, function (i, v) {
 
     s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
@@ -75,9 +68,84 @@ function topProduct() {
         window.location = './html/product.html';
     });
 
+}
 
+
+function topWindowAC() {
+    let s = ''
+
+    var a = filterProduct('type_id','wac', dataProduct)
+console.log(a);
+    $.each(a, function (i, v) {
+
+    s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
+                            <div class="img-product">
+                                <img src="${v.img}" alt="">
+                            </div>
+                            <div class="detail-product">
+                                <p class='name-product'>${v.name}</p>
+                                <p class='price'>${v.price}</p>
+                                
+                            </div>
+                </div>`;
+    })
+
+    $('#top-windowAC-product').html(s)
+    $('.product').click(function () {
+
+        var name = $(this).data('name');
+        localStorage.setItem('name', name);
+        window.location = './html/product.html';
+        var price = $(this).data('price');
+        localStorage.setItem('price', price);
+        window.location = './html/product.html';
+
+        var img = $(this).data('img');
+        localStorage.setItem('img', img);
+        window.location = './html/product.html';
+    });
 
 }
+
+function topCassetteAC() {
+    let s = ''
+    // var a1 = filterProduct('brand_id', 'tb', dataProduct)
+    // var a2 = filterProduct('brand_id', 'lg', dataProduct)
+    var r = filterProduct('type_id', 'cac', dataProduct)
+    // var a4 = filterProduct('name', 'Máy lạnh LG Inverter 1.5 HP V13APFP', dataProduct)
+
+    //console.log('Ban chay=', a3)//, dataProduct)
+    $.each(r, function (i, v) {
+
+    s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
+                            <div class="img-product">
+                                <img src="${v.img}" alt="">
+                            </div>
+                            <div class="detail-product">
+                                <p class='name-product'>${v.name}</p>
+                                <p class='price'>${v.price}</p>
+                                
+                            </div>
+                </div>`;
+    })
+
+    $('#top-cassetteAC-product').html(s)
+    $('.product').click(function () {
+
+        var name = $(this).data('name');
+        localStorage.setItem('name', name);
+        window.location = './html/product.html';
+        var price = $(this).data('price');
+        localStorage.setItem('price', price);
+        window.location = './html/product.html';
+
+        var img = $(this).data('img');
+        localStorage.setItem('img', img);
+        window.location = './html/product.html';
+    });
+
+}
+
 
 function LoadData() {
 
@@ -127,6 +195,10 @@ function filterProduct(column, value, data) {
 
     if (column == 'isNew') {
         return data.filter(item => item.isNew === value)
+    }
+    
+    if (column == 'type_id') {
+        return data.filter(item => item.type_id === value)
     }
     if (column == 'id')
         return data.filter(item => item.id == value)
