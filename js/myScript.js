@@ -158,7 +158,7 @@ function LoadData(dataProduct) {
                             </div>
                             <div class="detail-product">
                                 <p class='name-product'>${v.name}</p>
-                                <p class='price'>${v.price}</p>
+                                <p class='price'>${v.price}$</p>
                                 
                             </div>
                 </div>`;

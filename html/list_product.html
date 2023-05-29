@@ -17,6 +17,7 @@
     <script>
 
         $(document).ready(function () {
+
             LoadData(dataProduct);
             $("#sortby").change(function (e) {
                 var selectedValue = $(this).val();
@@ -39,6 +40,31 @@
                 }
 
             });
+            $("input[name='price_filter']").change(function (e) {
+                    var selectedValues = [];
+                    $("input[name='price_filter']:checked").each(function () {
+                        selectedValues.push($(this).val());
+                    });
+
+                    console.log("Selected values: " + selectedValues);
+                    // Lọc sản phẩm dựa trên giá tiền đã chọn
+                    var filteredProducts = dataProduct.filter(function (product) {
+                        var price = parseFloat(product.price);
+                        for (var i = 0; i < selectedValues.length; i++) {
+                            var range = selectedValues[i].split("-");
+                            var minPrice = parseFloat(range[0]);
+                            var maxPrice = parseFloat(range[1]);
+                            if (price >= minPrice && price <= maxPrice) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    });
+
+                    // Hiển thị sản phẩm đã lọc
+                    LoadData(filteredProducts);
+                });
+
 
 
         });
@@ -114,7 +140,7 @@
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input" name="price_filter" id=""
-                                        value="checkedValue">
+                                        value="0-200$">
                                     0-200$
                                 </label>
 
@@ -122,28 +148,28 @@
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input" name="price_filter" id=""
-                                        value="checkedValue">
+                                        value="201-400$">
                                     201-400$
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input" name="price_filter" id=""
-                                        value="checkedValue">
+                                        value="401-600$">
                                     401-600$
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input" name="price_filter" id=""
-                                        value="checkedValue">
+                                        value="601-1000$">
                                     601-1000$
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input" name="price_filter" id=""
-                                        value="checkedValue">
+                                        value="1000$">
                                     1000$-...
                                 </label>
                             </div>
