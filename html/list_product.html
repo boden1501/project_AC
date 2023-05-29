@@ -16,9 +16,20 @@
     <script src="../js/myScript.js"></script>
     <script>
         $(document).ready(function () {
-            LoadData();
-           
+            LoadData(product);
+            $('button:nth(0)').click(function(){
+                product.sort( (a, b)=>a.price-b.price   )
+                loadData(product);
+            })
+
+            $('button:nth(1)').click(function(){
+                product.sort( (a, b)=>b.price-a.price   )
+                loadData(product);
+            })
+            
+
         });
+        
     </script>
 </head>
 
@@ -139,7 +150,8 @@
                 </div>
             </div>
         </div>
-
+        <button>SX theo gia tang</button>
+        <button>Sap xep theo gia Giam</button>
         <div class="footer">
             <div class="row">
                 <div class="col-4 mt-3 ml-auto">

@@ -27,7 +27,7 @@ $(document).ready(function () {
         });
     }
     topCassetteAC();
-    topWindowAC();
+    
     topProduct();
    
 });
@@ -147,11 +147,11 @@ function topCassetteAC() {
 }
 
 
-function LoadData() {
+function LoadData(data) {
 
     let a = ''
     $.each(dataProduct, function (i, v) {
-        console.log(v)
+       
     a += `<div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
                             <div class="img-product">
                                 <img src=".${v.img}" alt="">
@@ -305,29 +305,4 @@ function filterProduct(column, value, data) {
 }
 
 
-function sortBy(column, type, data) {
-    if (column == 'brand_id') {
-        return data.sort((a, b) => a.brand_id - b.brand_id)
-    }
 
-    if (column == 'name') {
-        return data.sort(data.sort((a, b) => a.name - b.name))
-    }
-
-    if (column == 'price') {
-        if (type === 'inc') data.sort((a, b) => a.price - b.price)
-        else data.sort((a, b) => b.price - a.price)
-    }
-}
-function sortByPrice(){
-    // Sắp xếp sản phẩm theo giá tăng dần
-dataProduct.sort(function(a, b) {
-    return parseFloat(a.price) - parseFloat(b.price);
-  });
-  
-  // In kết quả sắp xếp
-  for (var i = 0; i < dataProduct.length; i++) {
-    console.log(dataProduct[i].name + " - " + dataProduct[i].price);
-  }
-  
-}
