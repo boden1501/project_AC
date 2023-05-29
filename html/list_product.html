@@ -15,24 +15,30 @@
     <script src="../js/data.js"></script>
     <script src="../js/myScript.js"></script>
     <script>
+
         $(document).ready(function () {
             LoadData(dataProduct);
-            $('#btnUp').click(function () {
-                // alert("🏠")
-                dataProduct.sort((a, b) => a.price - b.price)
-                LoadData(dataProduct);
-            })
-            $(selector).change(function (e) { 
-                e.preventDefault();
-                
-            });
-            $('#btnDown').click(function () {
-                // alert("🏠")
-                dataProduct.sort((a, b) => b.price - a.price)
-                console.log(dataProduct)
-                LoadData(dataProduct);
+            $("#sortby").change(function (e) {
+                var selectedValue = $(this).val();
+                $(this).find('option[value="SELECT"]').remove();
+                if (selectedValue === 'high') {
+                    dataProduct.sort((a, b) => a.price - b.price)
+                    LoadData(dataProduct);
+                }
+                else if (selectedValue === 'low') {
+                    dataProduct.sort((a, b) => b.price - a.price)
+                    console.log(dataProduct)
+                    LoadData(dataProduct);
+                }
+                else if (selectedValue === 'A-Z') {
+                    dataProduct.sort((a, b) => a.name.localeCompare(b.name))
+                    LoadData(dataProduct);
+                } else if (selectedValue === 'Z-A') {
+                    dataProduct.sort((a, b) => b.name.localeCompare(a.name))
+                    LoadData(dataProduct);
+                }
 
-            })
+            });
 
 
         });
@@ -91,8 +97,10 @@
                 <div class="col-2">
                     <div class="sort">
                         <h5>SORT BY</h5>
-                        <select name="" id="" class="form-control">
-                            <option value="FEATURED">Featured</option>
+                        <select name="" id="sortby" class="form-control">
+                            <option value="SELECT">--SELECT--</option>
+                            <option value="A-Z">A-Z</option>
+                            <option value="Z-A">Z-A</option>
                             <option value="high">Price (Highest First)</option>
                             <option value="low">Price (Lowest First)</option>
                             <!-- <option value="">Latest Arrival</option>
@@ -144,8 +152,6 @@
 
                 </div>
                 <div class="col-10 m-auto">
-                    <button id="btnUp">SX theo gia tang</button>
-                    <button id="btnDown">Sap xep theo gia Giam</button>
                     <h4>All ACs</h4>
                     <div class="list-all">
                         <div class="product">
