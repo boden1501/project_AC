@@ -830,8 +830,8 @@ const dataProduct=[
         "Outdoor":"RAV-GE4801UP-V",
     },
     {
-        "name": "Midea inverter (2.5 Hp) ceiling air conditioner MCD1-24HRDN1 model 2022",
-        "img": "./img/cassete ac/midea/Midea inverter (2.5 Hp) ceiling air conditioner MCD1-24HRDN1 model 2022 (1).webp",
+        "name": "Midea Inverter Ceiling Air Conditioner 2.5 HP (2.5 Horses) MCD1-24HRDN1 model 2022",
+        "img": "./img/cassete ac/midea/Midea Inverter Ceiling Air Conditioner 2.5 HP (2.5 Horses) MCD1-24HRDN1 model 2022.webp",
         "des": "des 39",
         "type_id":"cac",
         "brand_id": "mi",
