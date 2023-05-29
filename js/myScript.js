@@ -219,3 +219,15 @@ function sortBy(column, type, data) {
         else data.sort((a, b) => b.price - a.price)
     }
 }
+function sortByPrice(){
+    // Sắp xếp sản phẩm theo giá tăng dần
+dataProduct.sort(function(a, b) {
+    return parseFloat(a.price) - parseFloat(b.price);
+  });
+  
+  // In kết quả sắp xếp
+  for (var i = 0; i < dataProduct.length; i++) {
+    console.log(dataProduct[i].name + " - " + dataProduct[i].price);
+  }
+  
+}

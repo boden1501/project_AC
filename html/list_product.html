@@ -17,6 +17,7 @@
     <script>
         $(document).ready(function () {
             LoadData();
+           
         });
     </script>
 </head>
@@ -35,7 +36,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
+                    <a class="nav-link active dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Product</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: black; ">
                         <a class="dropdown-item" href="../html/list_product.html" style="color:white">All AC</a>
@@ -58,7 +59,7 @@
                     <a data-toggle="modal" data-target="#modelId" class="nav-link" href="#"><i
                             class="fa fa-user"></i></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="#"><i class="fa fa-cart-plus"></i></a>
                 </li>
 
@@ -85,9 +86,34 @@
                             <h6>Price</h6>
                             <div class="form-check">
                               <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
+                                <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
                                 0-200$
                               </label>
+                              
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
+                                  201-400$
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
+                                  401-600$
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
+                                  601-1000$
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
+                                  1000$-...
+                                </label>
                             </div>
                         </div>
                     </div>
