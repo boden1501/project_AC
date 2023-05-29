@@ -180,6 +180,106 @@ function LoadData() {
     });
 
 }
+function CAC(){
+    let a = ''
+    var t = filterProduct('type_id','cac', dataProduct)
+    $.each(t, function (i, v) {
+        console.log(v)
+    a += `<div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
+                            <div class="img-product">
+                                <img src=".${v.img}" alt="">
+                            </div>
+                            <div class="detail-product">
+                                <p class='name-product'>${v.name}</p>
+                                <p class='price'>${v.price}</p>
+                                
+                            </div>
+                </div>`;
+    })
+
+    $('.list-all').html(a)
+    $('.product').click(function () {
+
+        var name = $(this).data('name');
+        localStorage.setItem('name', name);
+        window.location = 'product.html';
+        var price = $(this).data('price');
+        localStorage.setItem('price', price);
+        window.location = 'product.html';
+
+        var img = $(this).data('img');
+        localStorage.setItem('img', img);
+        window.location = 'product.html';
+    });
+}
+function SAC(){
+    let s = ''
+
+    var a = filterProduct('type_id','sac', dataProduct)
+console.log(a);
+    $.each(a, function (i, v) {
+
+    s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
+                            <div class="img-product">
+                                <img src=".${v.img}" alt="">
+                            </div>
+                            <div class="detail-product">
+                                <p class='name-product'>${v.name}</p>
+                                <p class='price'>${v.price}</p>
+                                
+                            </div>
+                </div>`;
+    })
+
+    $('.list-all').html(s)
+    $('.product').click(function () {
+
+        var name = $(this).data('name');
+        localStorage.setItem('name', name);
+        window.location = './html/product.html';
+        var price = $(this).data('price');
+        localStorage.setItem('price', price);
+        window.location = './html/product.html';
+
+        var img = $(this).data('img');
+        localStorage.setItem('img', img);
+        window.location = './html/product.html';
+    });
+}
+function WAC(){
+    let s = ''
+
+    var a = filterProduct('type_id','wac', dataProduct)
+console.log(a);
+    $.each(a, function (i, v) {
+
+    s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
+                            <div class="img-product">
+                                <img src=".${v.img}" alt="">
+                            </div>
+                            <div class="detail-product">
+                                <p class='name-product'>${v.name}</p>
+                                <p class='price'>${v.price}</p>
+                                
+                            </div>
+                </div>`;
+    })
+
+    $('.list-all').html(s)
+    $('.product').click(function () {
+
+        var name = $(this).data('name');
+        localStorage.setItem('name', name);
+        window.location = './html/product.html';
+        var price = $(this).data('price');
+        localStorage.setItem('price', price);
+        window.location = './html/product.html';
+
+        var img = $(this).data('img');
+        localStorage.setItem('img', img);
+        window.location = './html/product.html';
+    });
+}
 function filterProduct(column, value, data) {
     if (column == 'brand_id') {
         return data.filter(item => item.brand_id == value)
