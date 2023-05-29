@@ -16,20 +16,28 @@
     <script src="../js/myScript.js"></script>
     <script>
         $(document).ready(function () {
-            LoadData(product);
-            $('button:nth(0)').click(function(){
-                product.sort( (a, b)=>a.price-b.price   )
-                loadData(product);
+            LoadData(dataProduct);
+            $('#btnUp').click(function () {
+                // alert("🏠")
+                dataProduct.sort((a, b) => a.price - b.price)
+                LoadData(dataProduct);
+            })
+            $(selector).change(function (e) { 
+                e.preventDefault();
+                
+            });
+            $('#btnDown').click(function () {
+                // alert("🏠")
+                dataProduct.sort((a, b) => b.price - a.price)
+                console.log(dataProduct)
+                LoadData(dataProduct);
+
             })
 
-            $('button:nth(1)').click(function(){
-                product.sort( (a, b)=>b.price-a.price   )
-                loadData(product);
-            })
-            
 
         });
-        
+
+
     </script>
 </head>
 
@@ -85,10 +93,10 @@
                         <h5>SORT BY</h5>
                         <select name="" id="" class="form-control">
                             <option value="FEATURED">Featured</option>
-                            <option value="">Price (Highest First)</option>
-                            <option value="">Price (Lowest First)</option>
-                            <option value="">Latest Arrival</option>
-                            <option value="">Discount (Descending)</option>
+                            <option value="high">Price (Highest First)</option>
+                            <option value="low">Price (Lowest First)</option>
+                            <!-- <option value="">Latest Arrival</option>
+                            <option value="">Discount (Descending)</option> -->
                         </select>
                     </div>
                     <div class="filter">
@@ -96,41 +104,48 @@
                         <div class="filter-price">
                             <h6>Price</h6>
                             <div class="form-check">
-                              <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
-                                0-200$
-                              </label>
-                              
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="price_filter" id=""
+                                        value="checkedValue">
+                                    0-200$
+                                </label>
+
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
-                                  201-400$
+                                    <input type="checkbox" class="form-check-input" name="price_filter" id=""
+                                        value="checkedValue">
+                                    201-400$
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
-                                  401-600$
+                                    <input type="checkbox" class="form-check-input" name="price_filter" id=""
+                                        value="checkedValue">
+                                    401-600$
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
-                                  601-1000$
+                                    <input type="checkbox" class="form-check-input" name="price_filter" id=""
+                                        value="checkedValue">
+                                    601-1000$
                                 </label>
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" name="price_filter" id="" value="checkedValue" >
-                                  1000$-...
+                                    <input type="checkbox" class="form-check-input" name="price_filter" id=""
+                                        value="checkedValue">
+                                    1000$-...
                                 </label>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="col-10 m-auto">
+                    <button id="btnUp">SX theo gia tang</button>
+                    <button id="btnDown">Sap xep theo gia Giam</button>
                     <h4>All ACs</h4>
                     <div class="list-all">
                         <div class="product">
@@ -146,12 +161,11 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>
-        <button>SX theo gia tang</button>
-        <button>Sap xep theo gia Giam</button>
+
         <div class="footer">
             <div class="row">
                 <div class="col-4 mt-3 ml-auto">
@@ -171,12 +185,12 @@
                         <p><i class="fa fa-envelope" aria-hidden="true"></i> Email: buyAC@gmail.com</p>
                         <p><i class="fa fa-compass" aria-hidden="true"></i> Address: Aptech ,Ho Chi Minh city, Vietnam
                         </p>
-    
+
                     </div>
                     <div class="option-buy">
                         <img src="../img/payment-pic.png" alt="">
                     </div>
-    
+
                 </div>
                 <div class="col-4 m-auto">
                     <iframe
@@ -184,7 +198,7 @@
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-    
+
             </div>
             <div class="row">
                 <div class="col-12">
@@ -193,7 +207,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modal -->
     <div class="modal fade " id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
