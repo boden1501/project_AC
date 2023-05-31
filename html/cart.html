@@ -14,9 +14,24 @@
     <script src="../css/bootstrap-4.6.2-dist/bootstrap-4.6.2-dist/js/bootstrap.js"></script>
     <script src="../js/data.js"></script>
     <script src="../js/myScript.js"></script>
+    <script src="../js/cartScript.js"></script>
+    <script>
+        
+
+
+
+
+
+
+
+
+
+
+    </script>
 </head>
 
 <body style="background-color: rgb(34, 34, 34);">
+
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: black">
         <a class="navbar-brand" href="../index.html"><img src="../img/logo.png" class="logo" alt=""></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
@@ -66,12 +81,12 @@
             </div>
         </div>
         <div class="row ">
-            <div class="col-8 " >
+            <div class="col-8 ">
                 <div class="cart-table">
                     <img class="m-auto" src="../img/cart_empty.png" alt="">
                     <h3>Your Cart is Empty</h3>
                     <p><a href="../index.html">continue shopping</a></p>
-                    
+
                 </div>
                 <!-- <table class="table" id="tb1" >
                     <tr class="header-content" style="font-weight: bold; background-color: rgb(201, 199, 199);">
@@ -85,8 +100,11 @@
                     </tr>  
                     
                 </table> -->
+                <div id="cartItems"></div>
+                <button id="reset">reset</button>
+
             </div>
-            <div class="col-4 " >
+            <div class="col-4 ">
                 <div class="row">
                     <div class="col-11 bg-info">
                         <div class="display-4 ">
@@ -94,13 +112,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-11">
                         <form action="" class="form">
                             <div class="form-group">
                                 <p>Số thẻ</p>
-                                <input type="text" name="" id="sothe" class="form-control" placeholder="XXXX XXXX XXXX XXXX">
+                                <input type="text" name="" id="sothe" class="form-control"
+                                    placeholder="XXXX XXXX XXXX XXXX">
                                 <span id="tbTen"></span>
                             </div>
                             <div class="form-group">
@@ -130,12 +149,12 @@
                             </div>
                             <div class="form-group">
                                 <p>Tổng tiền</p>
-                                <input type="text" name="" id="tong" class="form-control" readonly>
-                            </div>  
-                            
+                                <input type="text" name="" id="total" class="form-control" readonly>
+                            </div>
+
                             <div class="form-group">
                                 <button class="btn btn-info">Thanh Toán</button>
-                            </div>  
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -183,6 +202,7 @@
             </div>
         </div>
     </div>
+    
     <!-- Modal -->
     <div class="modal fade " id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

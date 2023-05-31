@@ -192,3 +192,7 @@
 .product-inf{
     z-index: 1;
 }
+.remove-button{
+    border: none;
+    
+}

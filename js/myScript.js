@@ -152,28 +152,39 @@ function LoadData(dataProduct) {
     let a = ''
     $.each(dataProduct, function (i, v) {
        
-    a += `<div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
+    a += `<div class="product" data-id="${v.id}" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}" data-machine_type="${v.machine_type}" data-cooling_capacity="${v.cooling_capacity}" data-effective_cooling_range="${v.effective_cooling_range}">
                             <div class="img-product">
                                 <img src=".${v.img}" alt="">
                             </div>
-                            <div class="detail-product">
+                            <div class="detail-product">                         
                                 <p class='name-product'>${v.name}</p>
-                                <p class='price'>${v.price}</p>
+                                <p class='price'>${v.price}$</p>
                                 
                             </div>
                 </div>`;
+                console.log(v.cooling_capacity);
     })
-
+    
     $('.list-all').html(a)
     $('.product').click(function () {
-
+        var id = $(this).data('id');
+        localStorage.setItem('id', id);
+        window.location = 'product.html';
+        var machine_type = $(this).data('machine_type');
+        localStorage.setItem('machine_type', machine_type);
+        window.location = 'product.html';
+        
+        var cooling_capacity = $(this).data('cooling_capacity');
+        localStorage.setItem('cooling_capacity', cooling_capacity);
+        var effective_cooling_range = $(this).data('effective_cooling_range');
+        localStorage.setItem('effective_cooling_range', effective_cooling_range);
         var name = $(this).data('name');
         localStorage.setItem('name', name);
-        window.location = 'product.html';
+   
         var price = $(this).data('price');
         localStorage.setItem('price', price);
         window.location = 'product.html';
-
+        console.log(cooling_capacity);
         var img = $(this).data('img');
         localStorage.setItem('img', img);
         window.location = 'product.html';
@@ -305,4 +316,23 @@ function filterProduct(column, value, data) {
 }
 
 
-
+function addToCart(id) {
+    // Lấy thông tin sản phẩm dựa trên id
+    let product = filterProduct('id', id, dataProduct);
+  
+    // Kiểm tra nếu đã có giỏ hàng trong localStorage
+    let cart = localStorage.getItem('cartLocalStorage');
+    if (cart !== null) {
+      cart = JSON.parse(cart); // Chuyển đổi chuỗi thành đối tượng
+      cart.push(product[0]); // Thêm sản phẩm vào giỏ hàng
+    } else {
+      cart = [product[0]]; // Tạo mới giỏ hàng và thêm sản phẩm
+    }
+  
+    // Lưu giỏ hàng vào localStorage
+    localStorage.setItem('cartLocalStorage', JSON.stringify(cart));
+  
+    // Thông báo thành công
+    alert('Đã thêm sản phẩm vào giỏ hàng');
+  }
+  
