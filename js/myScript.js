@@ -152,21 +152,24 @@ function LoadData(dataProduct) {
     let a = ''
     $.each(dataProduct, function (i, v) {
        
-    a += `<div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}">
+    a += `<div class="product" data-id="${v.id}" data-name="${v.name}" data-img="${v.img}" data-price="${v.price} " >
                             <div class="img-product">
                                 <img src=".${v.img}" alt="">
                             </div>
                             <div class="detail-product">
+                            
                                 <p class='name-product'>${v.name}</p>
                                 <p class='price'>${v.price}$</p>
                                 
                             </div>
                 </div>`;
+                console.log(v.id);
     })
-
+    
     $('.list-all').html(a)
     $('.product').click(function () {
-
+        var id = $(this).data('id');
+        localStorage.setItem('id', id);
         var name = $(this).data('name');
         localStorage.setItem('name', name);
         window.location = 'product.html';
@@ -305,4 +308,23 @@ function filterProduct(column, value, data) {
 }
 
 
-
+function addToCart(id) {
+    // Lấy thông tin sản phẩm dựa trên id
+    let product = filterProduct('id', id, dataProduct);
+  
+    // Kiểm tra nếu đã có giỏ hàng trong localStorage
+    let cart = localStorage.getItem('cartLocalStorage');
+    if (cart !== null) {
+      cart = JSON.parse(cart); // Chuyển đổi chuỗi thành đối tượng
+      cart.push(product[0]); // Thêm sản phẩm vào giỏ hàng
+    } else {
+      cart = [product[0]]; // Tạo mới giỏ hàng và thêm sản phẩm
+    }
+  
+    // Lưu giỏ hàng vào localStorage
+    localStorage.setItem('cartLocalStorage', JSON.stringify(cart));
+  
+    // Thông báo thành công
+    alert('Đã thêm sản phẩm vào giỏ hàng');
+  }
+  

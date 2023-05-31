@@ -60,7 +60,7 @@
                 var filteredProducts = dataProduct.filter(function (dataProduct) {
                     var price = parseFloat(dataProduct.price);
                     for (var i = 0; i < selectedValues.length; i++) {
-                        console.log(selectedValues[i]);
+                        // console.log(selectedValues[i]);
                         var range = selectedValues[i].split("-");
                         var minPrice = parseFloat(range[0]);
                         var maxPrice = parseFloat(range[1]);
