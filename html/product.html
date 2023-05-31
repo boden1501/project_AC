@@ -23,6 +23,8 @@ $(document).ready(function () {
     let price = localStorage.getItem('price');
     let img = localStorage.getItem('img');
     let id = localStorage.getItem('id');
+    let machine_type = localStorage.getItem('machine_type');
+    let cooling_capacity = localStorage.getItem('cooling_capacity');
     console.log(id);
     if (!img || !name || !price) {
         window.location = 'index.html';
@@ -44,13 +46,15 @@ $(document).ready(function () {
                     <button id='btnAdd' data-id="${id}">Add to Cart</button>
                     <div class="product-detail">
                         <ul>
-                            <li>Thông tin sản phẩm</li>
+                            <li>${machine_type}</li>
+                            <li>${cooling_capacity}</li>
+                            <li>${cooling_capacity}</li>
                         </ul>
                     </div>
                 </div>
             </div>
         `);
-
+        console.log(cooling_capacity);
         $('#btnAdd').click(function () {
         var id = $(this).data('id');
         addToCart(id);

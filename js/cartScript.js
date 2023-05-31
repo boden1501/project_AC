@@ -1,17 +1,5 @@
 $(document).ready(function () {
     loadCart();
-    // Total();
-
-    // function Total() {
-    //     let total = 0;
-    //     var num = $("input[name='num']").val();
-    //     var money = $("input[name='money']").val();
-    //     var price=money.split("$")
-        
-    //     total+=price[0]*num;
-    //     console.log(total);
-    // }
-
     $("input[name='num']").blur(function (e) {
         const index = $(this).closest("tr").index();
         const quantity = $(this).val();
