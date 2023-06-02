@@ -15,9 +15,10 @@
     <script src="../js/data.js"></script>
    <script src="../js/myScript.js"></script>
     <script src="../js/jquery.jqZoom.js"></script>
+    <script src="../js/cartScript.js"></script>
 
     <script>
-
+const cart = new Cart
 $(document).ready(function () {
     let name = localStorage.getItem('name');
     let price = localStorage.getItem('price');
@@ -41,7 +42,7 @@ $(document).ready(function () {
                 <div class="col-6">
                     <div class="product-inf">
                         <h3>${name}</h3>
-                        <p>${price}</p>
+                        <p>${price}$</p>
                     </div>
                     <button id='btnAdd' data-id="${id}">Add to Cart</button>
                     <div class="product-detail">
@@ -55,12 +56,13 @@ $(document).ready(function () {
             </div>
         `);
         console.log(cooling_capacity);
-        $('#btnAdd').click(function () {
-        var id = $(this).data('id');
-        addToCart(id);
-        console.log(id);
-  
-    });
+
+    $('#btnAdd').click(function () {
+                id = $(this).data('id')
+                qty = 1
+                cart.add2Cart(id, qty)
+                
+            })
     }
     
 });
@@ -81,14 +83,14 @@ $(document).ready(function () {
                     <a class="nav-link" href="../index.html">Home<span class="sr-only">(current)</span></a>
                 </li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item  dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Product</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId" style="background-color: black; ">
-                        <a class="dropdown-item" href="../html/list_product.html" style="color:white">All AC</a>
-                        <a class="dropdown-item" href="#" style="color:white">Window AC</a>
-                        <a class="dropdown-item" href="#" style="color:white">Split AC</a>
-                        <a class="dropdown-item" href="#" style="color:white">Cassette AC </a>
+                        <a class="dropdown-item active" href="../html/list_product.html" style="color:white">All AC</a>
+                        <a class="dropdown-item" href="./wac.html" style="color:white">Window AC</a>
+                        <a class="dropdown-item" href="./sac.html" style="color:white">Split AC</a>
+                        <a class="dropdown-item" href="./cac.html" style="color:white">Cassette AC </a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -105,7 +107,7 @@ $(document).ready(function () {
                     <a data-toggle="modal" data-target="#modelId" class="nav-link" href="#"><i
                             class="fa fa-user"></i></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="./cart.html"><i class="fa fa-cart-plus"></i></a>
                 </li>
 

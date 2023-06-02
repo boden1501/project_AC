@@ -47,7 +47,7 @@ function topProduct() {
                             </div>
                             <div class="detail-product">
                                 <p class='name-product'>${v.name}</p>
-                                <p class='price'>${v.price}</p>
+                                <p class='price'>${v.price}$</p>
                                 
                             </div>
                 </div>`;
@@ -74,7 +74,10 @@ function topProduct() {
 function topWindowAC() {
     let s = ''
 
-    var a = filterProduct('type_id','wac', dataProduct)
+    var a = dataProduct.filter(function(product) {
+        return product.type_id === 'wac' && product.bestSeller === true;
+      });
+      
 console.log(a);
     $.each(a, function (i, v) {
 
@@ -84,7 +87,7 @@ console.log(a);
                             </div>
                             <div class="detail-product">
                                 <p class='name-product'>${v.name}</p>
-                                <p class='price'>${v.price}</p>
+                                <p class='price'>${v.price}$</p>
                                 
                             </div>
                 </div>`;
@@ -123,7 +126,7 @@ function topCassetteAC() {
                             </div>
                             <div class="detail-product">
                                 <p class='name-product'>${v.name}</p>
-                                <p class='price'>${v.price}</p>
+                                <p class='price'>${v.price}$</p>
                                 
                             </div>
                 </div>`;
@@ -212,7 +215,7 @@ function CAC(){
                             </div>
                             <div class="detail-product">
                                 <p class='name-product'>${v.name}</p>
-                                <p class='price'>${v.price}</p>
+                                <p class='price'>${v.price}$</p>
                                 
                             </div>
                 </div>`;
@@ -265,7 +268,7 @@ console.log(a);
                             </div>
                             <div class="detail-product">
                                 <p class='name-product'>${v.name}</p>
-                                <p class='price'>${v.price}</p>
+                                <p class='price'>${v.price}$</p>
                                 
                             </div>
                 </div>`;
@@ -318,7 +321,7 @@ console.log(a);
                             </div>
                             <div class="detail-product">
                                 <p class='name-product'>${v.name}</p>
-                                <p class='price'>${v.price}</p>
+                                <p class='price'>${v.price}$</p>
                                 
                             </div>
                 </div>`;
