@@ -126,6 +126,7 @@ class Cart {
   }
   showCart(id) {
     let t = ''
+    let total=0;
     $.each(this.cart, function (k, v) {
       let money = v.qty * v.price
                       t += `
@@ -134,27 +135,22 @@ class Cart {
                             <td><button class="remove-button" onclick='removeFromCart("${v.id}") ' >x</button></td>
                             <td><img src=".${v.img}" alt="" style="width: 160px;"></td>
                             <td>${v.name}</td>
-                            <td><input type="number" name="num" id="" min="1" value="${v.qty}" style="width: 40px;" onchange='updateCart("${v.id}", this.value)'></td>
+                            <td><input type="number" name="num" id="" min="1" value="${v.qty}" style="width: 50px;" onchange='updateCart("${v.id}", this.value)'></td>
                             <td><input type="text" name="money" id="" value="${money}$" readonly style="width:100px;"></td>
                           </tr>
                         </table>
                       `;
-      // t += `<tr>
-      //             <td>${v.id} </td><td>${v.name} </td>
-      //             <td>${v.price} </td><td><input type=number value='${v.qty}' onchange='updateCart("${v.id}", this.value)'> </td>
-      //             <td>${money}</td>
-      //             <td><button onclick='removeFromCart("${v.id}") ' >Remove</button></td>
-      //         </tr>`
+      total+=money;
     })
-    // t += '</table>'
     $(id).html(t)
+    $("#total").val(total);
   }
-  //tra ve so luong cac item trong cart
-  totalItem() {
-    const getSum = (total, x) => total + parseInt(x.qty);
-    return this.cart.reduce(getSum, 0);
+  // //tra ve so luong cac item trong cart
+  // totalItem() {
+  //   const getSum = (total, x) => total + parseInt(x.qty);
+  //   return this.cart.reduce(getSum, 0);
 
-  }
+  // }
   findById(id) {  //cart.map(x=>x.id).findIndex(id)
     var pos = this.cart.findIndex(i => i.id == id);
     return pos;
