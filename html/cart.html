@@ -16,9 +16,18 @@
     <script src="../js/myScript.js"></script>
     <script src="../js/cartScript.js"></script>
     <script>
+        var cart = new Cart
+        // $('#cartTotal').html('('+cart.totalItem() +')')
+        $(function(){
+            cart.showCart('#cart-table')
+        })
+
+        const updateCart=(id, qty)=>{
+            cart.updateCart(id, qty)
         
+        }
 
-
+        const removeFromCart=(id)=>  cart.removeFromCart(id)
 
 
 
@@ -82,7 +91,7 @@
         </div>
         <div class="row ">
             <div class="col-8 ">
-                <div class="cart-table">
+                <div id="cart-table">
                     <img class="m-auto" src="../img/cart_empty.png" alt="">
                     <h3>Your Cart is Empty</h3>
                     <p><a href="../index.html">continue shopping</a></p>
@@ -100,7 +109,7 @@
                     </tr>  
                     
                 </table> -->
-                <div id="cartItems"></div>
+
                 <button id="reset">reset</button>
 
             </div>
