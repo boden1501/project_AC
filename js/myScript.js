@@ -387,24 +387,67 @@ function filterProduct(column, value, data) {
         return data.filter(item => item.id == value)
 }
 
+$(document).ready(function () {
 
-// function addToCart(id) {
-//     // Lấy thông tin sản phẩm dựa trên id
-//     let product = filterProduct('id', id, dataProduct);
-  
-//     // Kiểm tra nếu đã có giỏ hàng trong localStorage
-//     let cart = localStorage.getItem('cartLocalStorage');
-//     if (cart !== null) {
-//       cart = JSON.parse(cart); // Chuyển đổi chuỗi thành đối tượng
-//       cart.push(product[0]); // Thêm sản phẩm vào giỏ hàng
-//     } else {
-//       cart = [product[0]]; // Tạo mới giỏ hàng và thêm sản phẩm
-//     }
-  
-//     // Lưu giỏ hàng vào localStorage
-//     localStorage.setItem('cartLocalStorage', JSON.stringify(cart));
-  
-//     // Thông báo thành công
-//     alert('Đã thêm sản phẩm vào giỏ hàng');
-//   }
+    LoadData(dataProduct);
+    $("#sortby").change(function (e) {
+        var selectedValue = $(this).val();
+        $(this).find('option[value="SELECT"]').remove();
+        if (selectedValue === 'high') {
+            dataProduct.sort((a, b) => a.price - b.price)
+            LoadData(dataProduct);
+        }
+        else if (selectedValue === 'low') {
+            dataProduct.sort((a, b) => b.price - a.price)
+            console.log(dataProduct)
+            LoadData(dataProduct);
+        }
+        else if (selectedValue === 'A-Z') {
+            dataProduct.sort((a, b) => a.name.localeCompare(b.name))
+            LoadData(dataProduct);
+        } else if (selectedValue === 'Z-A') {
+            dataProduct.sort((a, b) => b.name.localeCompare(a.name))
+            LoadData(dataProduct);
+        }
+
+
+    });
+    $("input[name='price_filter']").change(function (e) {
+        var selectedValues = [];
+        $("input[name='price_filter']:checked").each(function () {
+            selectedValues.push($(this).val());
+        });
+
+        // console.log("Selected values: " + selectedValues);
+
+        // Kiểm tra nếu không có checkbox nào được chọn
+        if (selectedValues.length === 0) {
+            // Hiển thị tất cả sản phẩm
+            LoadData(dataProduct);
+            return;
+        }
+
+        // Lọc sản phẩm dựa trên giá tiền đã chọn
+        var filteredProducts = dataProduct.filter(function (dataProduct) {
+            var price = parseFloat(dataProduct.price);
+            for (var i = 0; i < selectedValues.length; i++) {
+                // console.log(selectedValues[i]);
+                var range = selectedValues[i].split("-");
+                var minPrice = parseFloat(range[0]);
+                var maxPrice = parseFloat(range[1]);
+                if (price >= minPrice && price <= maxPrice) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        // Hiển thị sản phẩm đã lọc
+        LoadData(filteredProducts);
+    });
+
+
+
+
+});
   

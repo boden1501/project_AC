@@ -108,10 +108,17 @@
 }
 
 .name-product{
+    overflow: hidden;
     height:50px;
     padding-left: 20px;
     padding-right: 20px;
 }
+.name-product:hover{
+    overflow:visible;
+    font-weight: bold;
+    height: 60px;
+}
+
 .copyright{
     background-color: rgb(26, 25, 25);
     text-align: center;
