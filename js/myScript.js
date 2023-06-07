@@ -155,7 +155,7 @@ function LoadData(dataProduct) {
     let a = ''
     $.each(dataProduct, function (i, v) {
        
-    a += `<div class="product" data-id="${v.id}" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}" data-machine_type="${v.machine_type}" data-cooling_capacity="${v.cooling_capacity}" data-effective_cooling_range="${v.effective_cooling_range}" data-Energy_saving_technology="${v.Energy_saving_technology}" data-Rapid_cooling="${v.Rapid_cooling}" data-Utilities="${v.Utilities}" data-Power_consumption="${v.Power_consumption}" data-Cooler="${v.Cooler}" data-Outdoor="${v.Outdoor}">
+    a += `<div class="product" data-id="${v.id}" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}" data-machine_type="${v.machine_type}" data-cooling_capacity="${v.cooling_capacity}" data-effective_cooling_range="${v.effective_cooling_range}" data-energy_saving_technology="${v.energy_saving_technology}" data-rapid_cooling="${v.rapid_cooling}" data-utilities="${v.utilities}" data-power_consumption="${v.power_consumption}" data-cooler="${v.cooler}" data-outdoor="${v.outdoor}">
                             
     
     <div class="img-product">
@@ -174,26 +174,28 @@ function LoadData(dataProduct) {
     $('.product').click(function () {
         var id = $(this).data('id');
         localStorage.setItem('id', id);
+        var energy_saving_technology = $(this).data('energy_saving_technology');
+        localStorage.setItem('energy_saving_technology', energy_saving_technology);
         window.location = 'product.html';
         var machine_type = $(this).data('machine_type');
         localStorage.setItem('machine_type', machine_type);
         window.location = 'product.html';
-        var Rapid_cooling = $(this).data('Rapid_cooling');
-        localStorage.setItem('Rapid_cooling', Rapid_cooling);
-        var Utilities = $(this).data('Utilities');
-        localStorage.setItem('Utilities', Utilities);
-        var Power_consumption = $(this).data('Power_consumption');
-        localStorage.setItem('Power_consumption', Power_consumption);
+        var rapid_cooling = $(this).data('rapid_cooling');
+        localStorage.setItem('rapid_cooling', rapid_cooling);
+        var utilities = $(this).data('utilities');
+        localStorage.setItem('utilities', utilities);
+        var power_consumption = $(this).data('power_consumption');
+        localStorage.setItem('power_consumption', power_consumption);
         var cooling_capacity = $(this).data('cooling_capacity');
         localStorage.setItem('cooling_capacity', cooling_capacity);
         var effective_cooling_range = $(this).data('effective_cooling_range');
         localStorage.setItem('effective_cooling_range', effective_cooling_range);
         var name = $(this).data('name');
         localStorage.setItem('name', name);
-        var Cooler = $(this).data('Cooler');
-        localStorage.setItem('Cooler', Cooler);
-        var Outdoor = $(this).data('Outdoor');
-        localStorage.setItem('Outdoor', Outdoor);
+        var cooler = $(this).data('cooler');
+        localStorage.setItem('cooler', cooler);
+        var outdoor = $(this).data('outdoor');
+        localStorage.setItem('outdoor', outdoor);
         var price = $(this).data('price');
         localStorage.setItem('price', price);
         window.location = 'product.html';
@@ -209,7 +211,7 @@ function CAC(){
     var t = filterProduct('type_id','cac', dataProduct)
     $.each(t, function (i, v) {
         console.log(v)
-    a += `<div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}" data-machine_type="${v.machine_type}" data-cooling_capacity="${v.cooling_capacity}" data-effective_cooling_range="${v.effective_cooling_range}" data-Energy_saving_technology="${v.Energy_saving_technology}" data-Rapid_cooling="${v.Rapid_cooling}" data-Utilities="${v.Utilities}" data-Power_consumption="${v.Power_consumption}" data-Cooler="${v.Cooler}" data-Outdoor="${v.Outdoor}">
+    a += `<div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}" data-machine_type="${v.machine_type}" data-cooling_capacity="${v.cooling_capacity}" data-effective_cooling_range="${v.effective_cooling_range}" data-energy_saving_technology="${v.energy_saving_technology}" data-rapid_cooling="${v.rapid_cooling}" data-utilities="${v.utilities}" data-power_consumption="${v.power_consumption}" data-cooler="${v.cooler}" data-outdoor="${v.outdoor}">
                             <div class="img-product">
                                 <img src=".${v.img}" alt="">
                             </div>
@@ -230,22 +232,22 @@ function CAC(){
         var machine_type = $(this).data('machine_type');
         localStorage.setItem('machine_type', machine_type);
         window.location = 'product.html';
-        var Rapid_cooling = $(this).data('Rapid_cooling');
-        localStorage.setItem('Rapid_cooling', Rapid_cooling);
-        var Utilities = $(this).data('Utilities');
-        localStorage.setItem('Utilities', Utilities);
-        var Power_consumption = $(this).data('Power_consumption');
-        localStorage.setItem('Power_consumption', Power_consumption);
+        var rapid_cooling = $(this).data('rapid_cooling');
+        localStorage.setItem('rapid_cooling', rapid_cooling);
+        var utilities = $(this).data('utilities');
+        localStorage.setItem('utilities', utilities);
+        var power_consumption = $(this).data('power_consumption');
+        localStorage.setItem('power_consumption', power_consumption);
         var cooling_capacity = $(this).data('cooling_capacity');
         localStorage.setItem('cooling_capacity', cooling_capacity);
         var effective_cooling_range = $(this).data('effective_cooling_range');
         localStorage.setItem('effective_cooling_range', effective_cooling_range);
         var name = $(this).data('name');
         localStorage.setItem('name', name);
-        var Cooler = $(this).data('Cooler');
-        localStorage.setItem('Cooler', Cooler);
-        var Outdoor = $(this).data('Outdoor');
-        localStorage.setItem('Outdoor', Outdoor);
+        var cooler = $(this).data('cooler');
+        localStorage.setItem('cooler', cooler);
+        var outdoor = $(this).data('outdoor');
+        localStorage.setItem('outdoor', outdoor);
         var price = $(this).data('price');
         localStorage.setItem('price', price);
         window.location = 'product.html';
@@ -262,7 +264,7 @@ function SAC(){
 console.log(a);
     $.each(a, function (i, v) {
 
-    s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}" data-machine_type="${v.machine_type}" data-cooling_capacity="${v.cooling_capacity}" data-effective_cooling_range="${v.effective_cooling_range}" data-Energy_saving_technology="${v.Energy_saving_technology}" data-Rapid_cooling="${v.Rapid_cooling}" data-Utilities="${v.Utilities}" data-Power_consumption="${v.Power_consumption}" data-Cooler="${v.Cooler}" data-Outdoor="${v.Outdoor}">
+    s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}" data-machine_type="${v.machine_type}" data-cooling_capacity="${v.cooling_capacity}" data-effective_cooling_range="${v.effective_cooling_range}" data-energy_saving_technology="${v.energy_saving_technology}" data-rapid_cooling="${v.rapid_cooling}" data-utilities="${v.utilities}" data-power_consumption="${v.power_consumption}" data-cooler="${v.cooler}" data-outdoor="${v.outdoor}">
                             <div class="img-product">
                                 <img src=".${v.img}" alt="">
                             </div>
@@ -283,22 +285,22 @@ console.log(a);
         var machine_type = $(this).data('machine_type');
         localStorage.setItem('machine_type', machine_type);
         window.location = 'product.html';
-        var Rapid_cooling = $(this).data('Rapid_cooling');
-        localStorage.setItem('Rapid_cooling', Rapid_cooling);
-        var Utilities = $(this).data('Utilities');
-        localStorage.setItem('Utilities', Utilities);
-        var Power_consumption = $(this).data('Power_consumption');
-        localStorage.setItem('Power_consumption', Power_consumption);
+        var rapid_cooling = $(this).data('rapid_cooling');
+        localStorage.setItem('rapid_cooling', rapid_cooling);
+        var utilities = $(this).data('utilities');
+        localStorage.setItem('utilities', utilities);
+        var power_consumption = $(this).data('power_consumption');
+        localStorage.setItem('power_consumption', power_consumption);
         var cooling_capacity = $(this).data('cooling_capacity');
         localStorage.setItem('cooling_capacity', cooling_capacity);
         var effective_cooling_range = $(this).data('effective_cooling_range');
         localStorage.setItem('effective_cooling_range', effective_cooling_range);
         var name = $(this).data('name');
         localStorage.setItem('name', name);
-        var Cooler = $(this).data('Cooler');
-        localStorage.setItem('Cooler', Cooler);
-        var Outdoor = $(this).data('Outdoor');
-        localStorage.setItem('Outdoor', Outdoor);
+        var cooler = $(this).data('cooler');
+        localStorage.setItem('cooler', cooler);
+        var outdoor = $(this).data('outdoor');
+        localStorage.setItem('outdoor', outdoor);
         var price = $(this).data('price');
         localStorage.setItem('price', price);
         window.location = 'product.html';
@@ -315,7 +317,7 @@ function WAC(){
 console.log(a);
     $.each(a, function (i, v) {
 
-    s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}" data-machine_type="${v.machine_type}" data-cooling_capacity="${v.cooling_capacity}" data-effective_cooling_range="${v.effective_cooling_range}" data-Energy_saving_technology="${v.Energy_saving_technology}" data-Rapid_cooling="${v.Rapid_cooling}" data-Utilities="${v.Utilities}" data-Power_consumption="${v.Power_consumption}" data-Cooler="${v.Cooler}" data-Outdoor="${v.Outdoor}">
+    s += ` <div class="product" data-name="${v.name}" data-img="${v.img}" data-price="${v.price}" data-machine_type="${v.machine_type}" data-cooling_capacity="${v.cooling_capacity}" data-effective_cooling_range="${v.effective_cooling_range}" data-energy_saving_technology="${v.energy_saving_technology}" data-rapid_cooling="${v.rapid_cooling}" data-utilities="${v.utilities}" data-power_consumption="${v.power_consumption}" data-cooler="${v.cooler}" data-outdoor="${v.outdoor}">
                             <div class="img-product">
                                 <img src=".${v.img}" alt="">
                             </div>
@@ -336,22 +338,22 @@ console.log(a);
         var machine_type = $(this).data('machine_type');
         localStorage.setItem('machine_type', machine_type);
         window.location = 'product.html';
-        var Rapid_cooling = $(this).data('Rapid_cooling');
-        localStorage.setItem('Rapid_cooling', Rapid_cooling);
-        var Utilities = $(this).data('Utilities');
-        localStorage.setItem('Utilities', Utilities);
-        var Power_consumption = $(this).data('Power_consumption');
-        localStorage.setItem('Power_consumption', Power_consumption);
+        var rapid_cooling = $(this).data('rapid_cooling');
+        localStorage.setItem('rapid_cooling', rapid_cooling);
+        var utilities = $(this).data('utilities');
+        localStorage.setItem('utilities', utilities);
+        var power_consumption = $(this).data('power_consumption');
+        localStorage.setItem('power_consumption', power_consumption);
         var cooling_capacity = $(this).data('cooling_capacity');
         localStorage.setItem('cooling_capacity', cooling_capacity);
         var effective_cooling_range = $(this).data('effective_cooling_range');
         localStorage.setItem('effective_cooling_range', effective_cooling_range);
         var name = $(this).data('name');
         localStorage.setItem('name', name);
-        var Cooler = $(this).data('Cooler');
-        localStorage.setItem('Cooler', Cooler);
-        var Outdoor = $(this).data('Outdoor');
-        localStorage.setItem('Outdoor', Outdoor);
+        var cooler = $(this).data('cooler');
+        localStorage.setItem('cooler', cooler);
+        var outdoor = $(this).data('outdoor');
+        localStorage.setItem('outdoor', outdoor);
         var price = $(this).data('price');
         localStorage.setItem('price', price);
         window.location = 'product.html';
@@ -386,23 +388,23 @@ function filterProduct(column, value, data) {
 }
 
 
-function addToCart(id) {
-    // Lấy thông tin sản phẩm dựa trên id
-    let product = filterProduct('id', id, dataProduct);
+// function addToCart(id) {
+//     // Lấy thông tin sản phẩm dựa trên id
+//     let product = filterProduct('id', id, dataProduct);
   
-    // Kiểm tra nếu đã có giỏ hàng trong localStorage
-    let cart = localStorage.getItem('cartLocalStorage');
-    if (cart !== null) {
-      cart = JSON.parse(cart); // Chuyển đổi chuỗi thành đối tượng
-      cart.push(product[0]); // Thêm sản phẩm vào giỏ hàng
-    } else {
-      cart = [product[0]]; // Tạo mới giỏ hàng và thêm sản phẩm
-    }
+//     // Kiểm tra nếu đã có giỏ hàng trong localStorage
+//     let cart = localStorage.getItem('cartLocalStorage');
+//     if (cart !== null) {
+//       cart = JSON.parse(cart); // Chuyển đổi chuỗi thành đối tượng
+//       cart.push(product[0]); // Thêm sản phẩm vào giỏ hàng
+//     } else {
+//       cart = [product[0]]; // Tạo mới giỏ hàng và thêm sản phẩm
+//     }
   
-    // Lưu giỏ hàng vào localStorage
-    localStorage.setItem('cartLocalStorage', JSON.stringify(cart));
+//     // Lưu giỏ hàng vào localStorage
+//     localStorage.setItem('cartLocalStorage', JSON.stringify(cart));
   
-    // Thông báo thành công
-    alert('Đã thêm sản phẩm vào giỏ hàng');
-  }
+//     // Thông báo thành công
+//     alert('Đã thêm sản phẩm vào giỏ hàng');
+//   }
   

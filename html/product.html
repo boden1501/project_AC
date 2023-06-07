@@ -26,6 +26,13 @@ $(document).ready(function () {
     let id = localStorage.getItem('id');
     let machine_type = localStorage.getItem('machine_type');
     let cooling_capacity = localStorage.getItem('cooling_capacity');
+    let effective_cooling_range = localStorage.getItem('effective_cooling_range');
+    let energy_saving_technology = localStorage.getItem('energy_saving_technology');
+    let rapid_cooling = localStorage.getItem('rapid_cooling');
+    let utilities = localStorage.getItem('utilities');
+    let power_consumption = localStorage.getItem('power_consumption');
+    let cooler = localStorage.getItem('cooler');
+    let outdoor = localStorage.getItem('outdoor');
     console.log(id);
     if (!img || !name || !price) {
         window.location = 'index.html';
@@ -34,22 +41,32 @@ $(document).ready(function () {
             <div class="row">
                 <div class="col-5 ml-5">
                     <div class="img-product-inf">
-                        <div class="zoom-box">
+                        <div class="col-12 ">
+                            <div class="zoom-box">
                             <img src=".${img}" alt="">
                         </div>
+                        </div>
+                        
                     </div>  
                 </div>
                 <div class="col-6">
                     <div class="product-inf">
-                        <h3>${name}</h3>
-                        <p>${price}$</p>
+                        <h2>${name}</h2>
+                        <h3 class='inf-price'>${price}$</h3>
                     </div>
-                    <button id='btnAdd' data-id="${id}">Add to Cart</button>
-                    <div class="product-detail">
+                    <button class="btn btn-success mt-5" id='btnAdd' data-id="${id}">Add to Cart</button>
+                    <div class="product-detail mt-5 bg-secondary">
+                        <h3>Product details</h3>
                         <ul>
-                            <li>${machine_type}</li>
-                            <li>${cooling_capacity}</li>
-                            <li>${cooling_capacity}</li>
+                            <li><b>Machine Type:</b> ${machine_type}</li>
+                            <li><b>Cooling Capacity:</b> ${cooling_capacity}</li>
+                            <li><b>Effective Cooling Range:</b> ${effective_cooling_range}</li>
+                            <li><b>Energy Saving Technology:</b> ${energy_saving_technology}</li>
+                            <li><b>Rapid Cooling:</b> ${rapid_cooling}</li>
+                            <li><b>Utilities:</b> ${utilities}</li>
+                            <li><b>Power Consumption:</b> ${power_consumption}</li>
+                            <li><b>Cooler:</b> ${cooler}</li>
+                            <li><b>Outdoor:</b> ${outdoor}</li>
                         </ul>
                     </div>
                 </div>
@@ -58,6 +75,7 @@ $(document).ready(function () {
         console.log(cooling_capacity);
 
     $('#btnAdd').click(function () {
+                alert("Successfully added to cart ✅")
                 id = $(this).data('id')
                 qty = 1
                 cart.add2Cart(id, qty)

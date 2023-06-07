@@ -41,7 +41,7 @@
     margin-left: 50px;
 }
 .main{
-    min-height: 600px;
+    height: 800px;
 }
 #banner{
     background-color: rgb(29, 29, 29);
@@ -146,13 +146,16 @@
     align-items: center;
 
 }
+.inf-price{
+    color: yellow;
+}
 .img-product-inf{
    
     
     float: left;
 }
 .img-product-inf img{
-    width: 100%;
+    /* width: 100%; */
 
     padding: 10px;
 }
@@ -161,6 +164,7 @@
     position: relative;
 }
 .zoom-box img{
+    width: 100%;
     vertical-align: bottom;
     
 }
